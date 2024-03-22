@@ -1,10 +1,10 @@
 # CogSpy
 
-<img align="right" src="cogspy.png" height="300" alt="cogpsy">
+<img align="right" src="cogspy.png" height="450" alt="cogpsy">
 
 🔑 A straightforward utility designed to aid in testing websites that utilize AWS Cognito
 
-## Features
+---
 
 ```bash
 Usage: main.py [OPTIONS] COMMAND [ARGS]...
