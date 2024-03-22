@@ -7,8 +7,6 @@
 
 <img align="right" src="cogspy.png" height="350" alt="cogpsy">
 
-
-
 ---
 
 ```bash
@@ -40,7 +38,7 @@ Before you begin, ensure you have Python 3.6+ and pip installed on your system. 
 1. **Clone the Repository**
 
    ```bash
-   git clone https://github.com/rodnt/cogspy.git
+   git clone git@github.com:rodnt/CogSpy.git
    cd cogspy
    ```
 
