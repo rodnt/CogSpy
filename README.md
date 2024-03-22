@@ -128,7 +128,7 @@ Below are the usage instructions for each of the CLI's features:
 
 ## License
 
-Include license information here.
+Apache 2 License.. 
 
 ## Contributing
 
