@@ -22,7 +22,6 @@ def cli():
 @click.option('--client-id', required=True, help='The Client ID of your AWS Cognito User Pool. EX: 6j3tkib2pXXXXXXXXXXXXXXXXX')
 @click.option('--pool-id', required=False, help='The Pool ID of your AWS Cognito User Pool. EX: us-east-1_pGJbLXXX')
 @click.option('--identity-id', required=False, help='The identity Pool ID of your AWS Cognito User Pool. EX: us-east-1:e5ca78d3-0730-4829-9ee0-XXXXXXXXXXXX')
-@click.option('--confirmation-code', required=False, help='The confirmation code to create user: Ex: 429258')
 def register(username, password, email, region, client_id, pool_id, identity_id):
     """Register a new user in AWS Cognito."""
     cognito_client = CognitoFuncs.CognitoClient(region=region, client_id=client_id, pool_id=pool_id, identity_id=identity_id)
@@ -117,7 +116,7 @@ def bulk_sign_up(client_id, usernames_file, passwords_file, region):
                 username = username.strip()
                 password = password.strip()
                 try:
-                    cognito_client.sign_up_user(client_id=client_id, username=username, password=password)
+                    cognito_client.bulk_sign_up_user(client_id=client_id, username=username, password=password)
                     click.echo(f"User {username} signed up successfully.")
                 except Exception as e:  # Consider more specific exception handling
                     if "UserAlreadyExistsException" in str(e):  # Adjust based on the actual exception or error message
