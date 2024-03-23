@@ -1,7 +1,5 @@
 # CogSpy
 
-
-
 🔑 A straightforward utility designed to aid in testing websites that utilize AWS Cognito
 
 
@@ -72,7 +70,7 @@ python3 main.py get-identity-id --region us-east-1 --identity-id us-east-1:12311
 
 python3 main.py get-credentials --identity-id us-east-1:123111-0730-4829-9ee0-g123fs1a --region "us-east-1" # get temporary credentials
 
-python main.py get_user --access-token "<access-token>" --region "us-east-1" # get user information tokens
+python main.py get-user --access-token "<access-token>" --region "us-east-1" # get user information tokens
 
 python3 main.py change-user-data --access-token aaaaaa --region us-east-1 # change user data ( Attack cenario, update email attribute before verification )
 ```
@@ -90,7 +88,7 @@ Below are the usage instructions for each of the CLI's features:
 - **Command**:
   
   ```bash
-  python main.py bulk_sign_up --client-id YOUR_CLIENT_ID --usernames-file /path/to/usernames.txt --passwords-file /path/to/passwords.txt --region YOUR_AWS_REGION
+  python main.py bulk-sign-up --client-id YOUR_CLIENT_ID --usernames-file /path/to/usernames.txt --passwords-file /path/to/passwords.txt --region YOUR_AWS_REGION
   ```
 
 ### Update User Attributes
@@ -100,7 +98,7 @@ Below are the usage instructions for each of the CLI's features:
   Users will be prompted to enter the attribute name and new value after executing the command.
   
   ```bash
-  python main.py change_user_data --access-token YOUR_ACCESS_TOKEN --region YOUR_AWS_REGION
+  python main.py change-user-data --access-token YOUR_ACCESS_TOKEN --region YOUR_AWS_REGION
   ```
 
 ### Fetch User Details
@@ -108,7 +106,7 @@ Below are the usage instructions for each of the CLI's features:
 - **Command**:
   
   ```bash
-  python main.py get_user --access-token YOUR_ACCESS_TOKEN --region YOUR_AWS_REGION
+  python main.py get-user --access-token YOUR_ACCESS_TOKEN --region YOUR_AWS_REGION
   ```
 
 ### Get Temporary AWS Credentials
@@ -116,13 +114,12 @@ Below are the usage instructions for each of the CLI's features:
 - **Command**:
   
   ```bash
-  python main.py get_credentials --identity-id YOUR_IDENTITY_ID --region YOUR_AWS_REGION
+  python main.py get-credentials --identity-id YOUR_IDENTITY_ID --region YOUR_AWS_REGION
   ```
 
 ## Additional Information
 
 - **Customizing the CLI**: This CLI can be extended or customized to include more features from AWS Cognito.
-- **Security**: Always ensure your usernames and passwords are handled securely. Avoid storing sensitive information in plaintext.
 
 ## License
 
