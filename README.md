@@ -122,10 +122,15 @@ httpx -l urls.txt -mr '(af-south-1|ap-east-1|ap-northeast-[123]|ap-south-[12]|ap
 
 # identity pools
 httpx -l urls.txt -mr '(af-south-1|ap-east-1|ap-northeast-[123]|ap-south-[12]|ap-southeast-[1234]|ca-central-1|ca-west-1|cn-north-1|cn-northwest-1|eu-central-[12]|eu-north-1|eu-south-[12]|eu-west-[123]|il-central-1|me-central-1|me-south-1|sa-east-1|us-east-[12]|us-gov-east-1|us-gov-west-1|us-west-[12]):[a-f0-9]{8}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{12}'
-
-
-
 ```
+
+## Possibile Fixing/Mitigations
+- Attribute permissions and scopes
+  - https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-settings-attributes.html
+- Confidential client
+  - https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-settings-client-apps.html
+- Tutorial: Using lambda + AWS Cognito triggers to Only Allow Auto-Verification to specific domain
+  - https://medium.com/@earlg3/using-lambda-aws-cognito-triggers-to-only-allow-auto-verification-to-specific-domain-db2efea79c44
 
 
 ## Additional Information
