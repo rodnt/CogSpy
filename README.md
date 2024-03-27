@@ -9,22 +9,25 @@
 
 ```bash
 Usage: main.py [OPTIONS] COMMAND [ARGS]...
+
   COGSPY - Spy and exploit some aws cognito missconfigurations.
+
   Author: rodnt
+
   Version: 1.1
 
 Options:
   --help  Show this message and exit.
 
 Commands:
-  bulk-sign-up      User enumeration OR DOS (block new users access) -...
+  bulk-sign-up      User enumeration OR DOS Bulk sign-up users from...
   change-user-data  Command to update user data in Amazon Cognito.
   confirm           Confirm a user's account with the provided...
   get-credentials   Fetch temporary AWS credentials for a given identity ID.
   get-identity-id   Generate an identity ID for the given identity pool.
   get-user          Fetch user details from Amazon Cognito using an...
+  login             Log in a user using AWS Cognito.
   register          Register a new user in AWS Cognito.
-
 ```
 
 
