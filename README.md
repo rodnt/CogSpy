@@ -7,7 +7,7 @@
 
 ---
 
-```bash
+```
 Usage: main.py [OPTIONS] COMMAND [ARGS]...
 
   COGSPY - Spy and exploit some aws cognito missconfigurations.
