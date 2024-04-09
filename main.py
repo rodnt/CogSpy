@@ -38,7 +38,7 @@ def confirm(username, confirmation_code, region, client_id):
     """Confirm a user's account with the provided confirmation code."""
     cognito_client = CognitoFuncs.CognitoClient(region=region, client_id=client_id)
     cognito_client.confirm_user(username, confirmation_code)
-    click.echo(f"Confirming user: {username} with confirmation code: {confirmation_code}")
+    click.echo(f"[+] Confirming user: {username} with confirmation code: {confirmation_code}")
 
 @cli.command()
 @click.option('--identity-id', required=True, help='The Identity Pool ID of your AWS Cognito Identity Pool. EX: us-east-1:xxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxx')
@@ -117,10 +117,10 @@ def bulk_sign_up(client_id, usernames_file, passwords_file, region):
                 password = password.strip()
                 try:
                     cognito_client.bulk_sign_up_user(client_id=client_id, username=username, password=password)
-                    click.echo(f"User {username} signed up successfully.")
+                    click.echo(f"[+] User {username} signed up successfully.")
                 except Exception as e:  # Consider more specific exception handling
                     if "UserAlreadyExistsException" in str(e):  # Adjust based on the actual exception or error message
-                        click.echo(f"User {username} already exists.")
+                        click.echo(f"[!] User {username} already exists.")
                     else:
                         click.echo(f"An error occurred for user {username}: {e}")
     except FileNotFoundError:
