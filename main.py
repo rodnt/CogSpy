@@ -27,7 +27,7 @@ def register(username, password, email, region, client_id, pool_id, identity_id)
     cognito_client = CognitoFuncs.CognitoClient(region=region, client_id=client_id, pool_id=pool_id, identity_id=identity_id)
     click.echo(f'Registering user: {username} in region: {region} with client ID: {client_id}')
     
-    cognito_client.sign_up_user(username, password, email)
+    cognito_client.register(username, password, email)
 
 @cli.command()
 @click.option('--username', required=True, help='Username for confirmation.')
@@ -129,6 +129,17 @@ def bulk_sign_up(client_id, usernames_file, passwords_file, region):
         click.echo(f"An error occurred: {e}")
 
 
+@cli.command()
+@click.option('--username', required=True, help='Username/email')
+@click.option('--password', required=True, help='Password')
+@click.option('--region', required=True, help='AWS region for the Cognito service.')
+@click.option('--client-id', required=True, help='The Client ID of your AWS Cognito User Pool.')
+def login(username, password, region, client_id):
+    """Login user account with USER PASSWORD AUTH method"""
+    cognito_client = CognitoFuncs.CognitoClient(region=region, client_id=client_id)
+    cognito_client.login(username, password)
+    click.echo(f"[+] Auth user: {username} with password: {password} and USER_PASSWORD_AUTH")
+
 
 if __name__ == '__main__':
     cli.add_command(change_user_data)
@@ -138,4 +149,5 @@ if __name__ == '__main__':
     cli.add_command(get_identity_id)
     cli.add_command(confirm)
     cli.add_command(register)
+    cli.add_command(login)
     cli()

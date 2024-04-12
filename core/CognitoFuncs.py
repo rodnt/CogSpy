@@ -17,7 +17,7 @@ class CognitoClient:
         self.identity_client = boto3.client('cognito-identity', region_name=self.region)
         self.user_pools_client = boto3.client('cognito-idp', region_name=self.region)
 
-    def sign_up_user(self, username, password, email):
+    def register(self, username, password, email):
         """
         Sign up a new user with Cognito User Pool.
         :param username: Username for the new user.
@@ -39,7 +39,7 @@ class CognitoClient:
             print("User sign-up successful.")
             print(response)
             if response.get('UserConfirmed', False):
-                print(f"[HIGH] Registration without confirmation detected. [DOS - New Users]")
+                print(f"\n>>> [HIGH] Registration without confirmation detected. [DOS - New Users]")
             
         except ClientError as e:
             print(f"An error occurred: {e}")
@@ -154,4 +154,26 @@ class CognitoClient:
                 print(f"User {username} already exists.")
             else:
                 print(f"An error occurred: {e}")
+
+    def login(self, username, password):
+        """
+        Log in an existing user into Cognito User Pool.
+        :param username: Username of the user.
+        :param password: Password of the user.
+        """
+        try:
+            response = self.client.initiate_auth(
+                ClientId=self.client_id,
+                AuthFlow='USER_PASSWORD_AUTH',
+                AuthParameters={
+                    'USERNAME': username,
+                    'PASSWORD': password
+                }
+            )
+            print(response)
+            return response['AuthenticationResult']
+
+        except ClientError as e:
+            print(f"An error occurred: {e}")
+
 
